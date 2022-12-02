@@ -1,0 +1,36 @@
+USE mysql_demo_tnj
+CREATE TABLE td_ragu(
+id INT PRIMARY KEY,
+first_name VARCHAR(250),
+last_name VARCHAR(230),
+ age INT ,
+ country VARCHAR(123),
+ email VARCHAR(50),
+ ALTER TABLE td_ragu ADD city VARCHAR(32),
+
+ );
+ INSERT INTO td_ragu VALUES(1,'ramkumar','ramkumar',24,'india','ram@gmail.com','thanjavur'); 
+ INSERT INTO td_ragu VALUES(2,'ragu','raguvaran',26,'india','ragu@gmail.com','vadakkur');
+ INSERT INTO td_ragu VALUES(3,'pradeep','pradeep',28,'india','pr@gmail.com','orathanadu');
+
+  ALTER TABLE td_ragu ADD state VARCHAR(32);
+   ALTER TABLE td_ragu ADD pincode VARCHAR(32);
+  ALTER TABLE td_ragu ADD monthsalary VARCHAR(32);
+   INSERT INTO td_ragu VALUES(4,'dharan','dharan',24,'india','dharan@gmail.com','orathanadu','tamilnadu',645345,11100);
+   
+   INSERT INTO td_ragu VALUES(5,'kannan','kannan',21,'india','kannan@gmail.com','orathanadu','tamilnadu',64453,18000);
+   INSERT INTO td_ragu (id,first_name,last_name) VALUES(6,'karthi','karthi');
+   
+   SELECT COUNT(*),country FROM td_ragu GROUP BY country;
+   SELECT * FROM td_ragu ORDER BY age ASC;
+   SELECT * FROM td_ragu ORDER BY age DESC LIMIT 3;
+   SELECT * FROM td_ragu WHERE city IN ('orathanadu');
+   SELECT * FROM td_ragu WHERE email NOT IN ('dharan@gmail.com');
+   DELETE FROM td_ragu WHERE last_name='kannan';
+   SELECT * FROM td_ragu;
+ ALTER TABLE  td_ragu DROP monthsalary;
+ SELECT * FROM td_ragu;
+ SELECT * FROM td_ragu WHERE first_name LIKE 'ka%';
+ SELECT * FROM td_ragu WHERE first_name LIKE '%a%';
+ SELECT * FROM td_ragu WHERE first_name LIKE '%ra%' AND id=2;
+ SELECT * FROM td_ragu WHERE  email IN('ram@gmail.com','ragu@gmail.com');
